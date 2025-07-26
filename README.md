@@ -1,3 +1,1 @@
-# Framework13-bluefin-like-battery-optimization-script
-# Framework13-bluefin-like-battery-optimization-script
-# Framework13-bluefin-like-battery-optimization-script
+##Applies battery optimization settings from bluefin distro for framework 13 with amd ai 300 series chip
