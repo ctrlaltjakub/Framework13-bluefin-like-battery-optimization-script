@@ -118,16 +118,7 @@ fi
 if [[ "$CPU_VENDOR" == "AuthenticAMD" ]]; then
     print_header "AMD-SPECIFIC FIXES"
 
-    # --- Fix 3: AMD 3.5mm Audio Jack ---
-    AUDIO_FIX_FILE="/etc/modprobe.d/framework-audio.conf"
-    AUDIO_FIX_CONTENT="options snd-hda-intel index=1,0 model=auto,dell-headset-multi"
-    prompt_user \
-        "Fixes detection of the 3.5mm audio jack on AMD models by setting specific sound module options." \
-        "echo '$AUDIO_FIX_CONTENT' | sudo tee '$AUDIO_FIX_FILE' > /dev/null && echo 'Audio fix applied.'" \
-        "sudo rm -f '$AUDIO_FIX_FILE' && echo 'Audio fix file removed.'" \
-        true
-
-    # --- Fix 4: AMD Suspend Workaround ---
+    # --- Fix 3: AMD Suspend Workaround ---
     SUSPEND_FIX_FILE="/etc/udev/rules.d/99-framework-suspend.rules"
     SUSPEND_FIX_CONTENT='ACTION==\"add\", SUBSYSTEM==\"serio\", DRIVERS==\"atkbd\", ATTR{power/wakeup}=\"disabled\"'
     prompt_user \
